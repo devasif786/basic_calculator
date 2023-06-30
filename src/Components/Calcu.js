@@ -5,6 +5,11 @@ export default function Calcu() {
     const [input , setInput]=useState()
     const [inputTwo , setInputTwo]=useState()
     const [result, setResult]=useState(0)
+    const handleD=()=>{
+      setInput(0)
+      setInputTwo(0)
+      setResult(0)
+    }
     const hd=()=>{
       if(Number(inputTwo)==0){
         setResult('Cant divide with 0')
@@ -24,7 +29,7 @@ export default function Calcu() {
     <button   onClick={()=>setResult(input-inputTwo)}>-Sub</button>
     <button  onClick={()=>setResult(input*inputTwo)}>*MultiPlication</button>
     <button  onClick={hd}>/Division</button>
-    <button>Delete</button>
+    <button onClick={handleD}>Delete</button>
     <h1>{result}</h1>
     </div>
   )
