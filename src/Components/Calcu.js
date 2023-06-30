@@ -6,21 +6,24 @@ export default function Calcu() {
     const [inputTwo , setInputTwo]=useState()
     const [result, setResult]=useState(0)
     const hd=()=>{
-      if(input<inputTwo){
-        setResult(input%inputTwo)
+      if(Number(inputTwo)==0){
+        setResult('Cant divide with 0')
+      }
+      else{
+        setResult(Number(input)/Number(inputTwo))
       }
     }
 
   return (
     <div>
-    <input type='number' value={input} onChange={()=>setInput(input)}/>
+    <input type='number' value={input} onChange={(e)=>setInput(e.target.value)}/>
 
-    <input type='number' value={inputTwo} onChange={()=>setInputTwo(inputTwo)}/>
+    <input type='number' value={inputTwo} onChange={(e)=>setInputTwo(e.target.value)}/>
 
-    <button onClick={()=>setResult(input+inputTwo)}>+Add</button>
+    <button onClick={()=>setResult(Number(input)+Number(inputTwo))}>+Add</button>
     <button   onClick={()=>setResult(input-inputTwo)}>-Sub</button>
     <button  onClick={()=>setResult(input*inputTwo)}>*MultiPlication</button>
-    <button  onClick={hd}>%Division</button>
+    <button  onClick={hd}>/Division</button>
     <button>Delete</button>
     <h1>{result}</h1>
     </div>
